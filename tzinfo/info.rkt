@@ -1,0 +1,6 @@
+#lang info
+
+(define name "TZData")
+(define version "0.2")
+(define iana-version "2015a")
+
