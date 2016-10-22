@@ -1,5 +1,6 @@
 #lang info
 
 (define collection 'multi)
-(define deps '("base" "tzinfo"))
+(define deps '("base"))
+(define version "0.3")
 

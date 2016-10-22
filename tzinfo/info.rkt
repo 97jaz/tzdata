@@ -1,6 +1,4 @@
 #lang info
 
-(define name "TZData")
-(define version "0.2")
-(define iana-version "2015a")
-
+(define iana-tz-version "2016h")
+(define tzdata-zoneinfo-dir "private/data")
