@@ -12,7 +12,7 @@
 
 (define-runtime-path pkg-base-path ".")
 (define build-dir (build-path pkg-base-path "build"))
-(define src-dir (build-path build-dir "tzinstall" "etc" "zoneinfo"))
+(define src-dir (build-path build-dir "tzinstall" "usr" "share" "zoneinfo"))
 (define install-dir (build-path pkg-base-path "tzinfo" "private" "data"))
 (define info-file (build-path pkg-base-path "tzinfo" "info.rkt"))
 
