@@ -13,7 +13,7 @@
 (define-runtime-path pkg-base-path ".")
 (define build-dir (build-path pkg-base-path "build"))
 (define src-dir (build-path build-dir "tzinstall" "usr" "share" "zoneinfo"))
-(define install-dir (build-path pkg-base-path "tzinfo" "private" "data"))
+(define install-dir (build-path pkg-base-path "tzinfo" "tzdata" "zoneinfo"))
 (define info-file (build-path pkg-base-path "tzinfo" "info.rkt"))
 
 (define (clean)
@@ -63,9 +63,13 @@
     (λ ()
       (displayln "#lang info")
       (newline)
+      (display
+       (string-append ";; `tzdata-zoneinfo-dir` is for backward compatibility with\n"
+                      ";; older versions of tzinfo. It can be removed in future\n"
+                      ";; versions.\n"))
       (writeln `(define iana-tz-version ,(version)))
-      (writeln `(define tzdata-zoneinfo-dir "private/data")))))
-
+      (writeln `(define tzdata-zoneinfo-dir "tzdata/zoneinfo"))
+      (writeln `(define tzdata-zoneinfo-module-path '(lib "tzinfo/tzdata/zoneinfo"))))))
 
 (define (run)
   (clean)
