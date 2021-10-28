@@ -69,7 +69,8 @@
                       ";; versions.\n"))
       (writeln `(define iana-tz-version ,(version)))
       (writeln `(define tzdata-zoneinfo-dir "tzdata/zoneinfo"))
-      (writeln `(define tzdata-zoneinfo-module-path '(lib "tzinfo/tzdata/zoneinfo"))))))
+      (writeln `(define tzdata-zoneinfo-module-path '(lib "tzinfo/tzdata/zoneinfo")))
+      (writeln `(define copy-shared-files '("tzdata"))))))
 
 (define (run)
   (clean)
@@ -80,3 +81,6 @@
   (install-data)
   (install-info)
   (clean))
+
+(module* main #f
+  (run))
