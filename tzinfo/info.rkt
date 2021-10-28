@@ -6,3 +6,4 @@
 (define iana-tz-version "2021e")
 (define tzdata-zoneinfo-dir "tzdata/zoneinfo")
 (define tzdata-zoneinfo-module-path (quote (lib "tzinfo/tzdata/zoneinfo")))
+(define copy-shared-files (quote ("tzdata")))
