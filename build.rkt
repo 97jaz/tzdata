@@ -39,7 +39,11 @@
 
 (define (make)
   (parameterize ([current-directory build-dir])
-    (or (system "make TOPDIR=tzinstall install")
+    ;; The "fat" build creates some number of future transitions.
+    ;; The resulting files are larger, but tzinfo doesn't yet
+    ;; (as of 2021-12-03) handle future cases without those extra
+    ;; transitions. See https://github.com/97jaz/tzinfo/issues/18
+    (or (system "make TOPDIR=tzinstall ZFLAGS=\"-b fat\" install")
         (raise "build failed"))))
 
 ;; requires the unarchive step to have been executed
